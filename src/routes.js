@@ -6,7 +6,6 @@ import SimpleLayout from './layouts/simple';
 import BlogPage from './pages/BlogPage';
 import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
-import Page from './pages/account';
 import Project from './pages/Project';
 import Page404 from './pages/Page404';
 import ProductsPage from './pages/ProductsPage';
@@ -26,7 +25,6 @@ export default function Router() {
         { path: 'project', element: <Project /> },
         { path: 'products', element: <ProductsPage /> },
         { path: 'blog', element: <BlogPage /> },
-        { path: 'account', element: <Page /> },
       ],
     },
     {
