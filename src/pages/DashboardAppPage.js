@@ -31,28 +31,40 @@ export default function DashboardAppPage() {
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back
+          VVIM Dashboard
         </Typography>
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:fund-projection-screen-outlined'}/>
+            <AppWidgetSummary title="Total Visitors" total={6} icon={'ant-design:fund-projection-screen-outlined'}/>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:user-outlined'} />
+            <AppWidgetSummary title="Total vehicles" total={7} color="info" icon={'ant-design:user-outlined'} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:bank-outlined'} />
+            <AppWidgetSummary title="Flagged Vehicles" total={6} color="warning" icon={'ant-design:bank-outlined'} />
           </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:file-protect-outlined'} />
+          <Grid item xs={12} md={6} lg={7}>
+            <AppConversionRates
+              title="Entry Statistics"
+              subheader="(+43%) than last year"
+              chartData={[
+                { label: 'Monday', value: 100 },
+                { label: 'Tuesday', value: 200 },
+                { label: 'Wed', value: 310 },
+                { label: 'Thursday', value: 405 },
+                { label: 'Friday', value: 220 },
+                { label: 'Saturday', value: 300 },
+                
+              ]}
+            />
           </Grid>
+         
 
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Current Visits"
               chartData={[
@@ -68,42 +80,15 @@ export default function DashboardAppPage() {
                 theme.palette.error.main,
               ]}
             />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppConversionRates
-              title="Evolution de projet"
-              subheader="(+43%) than last year"
-              chartData={[
-                { label: 'Projet de contruction', value: 10 },
-                { label: 'Ordre de la reunion', value: 30 },
-                { label: 'developpement de la plateforme', value: 0 },
-                
-              ]}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentSubject
-              title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
-              chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
-              ]}
-              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
+          </Grid> */}
+          <Grid item xs={12} md={6} lg={5}>
             <AppNewsUpdate
-              title="Events and News"
-              list={[...Array(5)].map((_, index) => ({
+              title="Recently Logged In Vehicles"
+              list={[...Array(2)].map((_, index) => ({
                 id: faker.datatype.uuid(),
                 title: faker.name.jobTitle(),
                 description: faker.name.jobTitle(),
-                image: `/assets/images/covers/cover_${index + 1}.jpg`,
+                image: `/assets/images/covers/image.png`,
                 postedAt: faker.date.recent(),
               }))}
             />
@@ -128,19 +113,22 @@ export default function DashboardAppPage() {
           </Grid>
 
           
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppTasks
-              title="Tasks"
-              list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
+{/* 
+          <Grid item xs={12} md={6} lg={4}>
+            <AppCurrentSubject
+              title="Current Subject"
+              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
+              chartData={[
+                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
+                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
+                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
               ]}
+              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
-          </Grid>
+          </Grid> */}
+
+
+          
         </Grid>
       </Container>
     </>

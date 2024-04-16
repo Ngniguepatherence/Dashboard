@@ -53,8 +53,8 @@ export default function Nav({ openNav, onCloseNav }) {
         '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
       }}
     >
-      <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
-        <Logo />
+      <Box sx={{ px: 2.5, py: 3, display: 'inline-flex',bgcolor:'#386BF6', color:'#ffffff'}}>
+      VVIMS®
       </Box>
 
       <Box sx={{ mb: 5, mx: 2.5 }}>

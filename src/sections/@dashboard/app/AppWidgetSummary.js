@@ -36,7 +36,7 @@ export default function AppWidgetSummary({ title, total, icon, color = 'primary'
       sx={{
         py: 5,
         boxShadow: 0,
-        textAlign: 'center',
+        textAlign: 'left',
         color: (theme) => theme.palette[color].darker,
         bgcolor: (theme) => theme.palette[color].lighter,
         ...sx,
@@ -53,7 +53,7 @@ export default function AppWidgetSummary({ title, total, icon, color = 'primary'
             )} 100%)`,
         }}
       >
-        <Iconify icon={icon} width={24} height={24} />
+        <Iconify icon="car" width={24} height={24} />
       </StyledIcon>
 
       <Typography variant="h3">{fShortenNumber(total)}</Typography>
