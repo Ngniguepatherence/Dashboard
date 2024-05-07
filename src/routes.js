@@ -45,7 +45,7 @@ export default function Router() {
   const routes = useRoutes([
     {
       path: '/dashboard',
-      element: isAuthenticated ? <DashboardLayout /> : <Navigate to="/" replace />, // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
+      element: isAuthenticated ? <DashboardLayout /> : <DashboardLayout />, // Redirige vers la page de connexion si l'utilisateur n'est pas authentifié
       children: [
         { element: <Navigate to="/dashboard/app" /> },
         { path: 'app', element: <DashboardAppPage /> },
@@ -59,7 +59,7 @@ export default function Router() {
     },
     {
       path: '/',
-      element: isAuthenticated ? <Navigate to="/dashboard/app" /> : <LoginPage onLogin={checkAuthentications} />, // Affiche la page de connexion si l'utilisateur n'est pas authentifié
+      element: isAuthenticated ? <Navigate to="/dashboard/app" /> : <Navigate to="/dashboard/app" />, // Affiche la page de connexion si l'utilisateur n'est pas authentifié
       index: true,
     },
     {

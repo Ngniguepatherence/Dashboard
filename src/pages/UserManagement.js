@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { filter, size } from 'lodash';
+import { filter, set, size } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState, useEffect } from 'react';
 import { alpha, styled } from '@mui/material/styles';
@@ -102,6 +102,11 @@ export default function UserMangement() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [description, setDescription] = useState('');
+  const [address, setAddress] = useState('');
+
+  const [phone, setPhone] = useState('');
+
 
   const handleOpenMenu = (event) => {
     setOpen(event.currentTarget);
@@ -172,6 +177,11 @@ export default function UserMangement() {
     fetchData();
   }, []);
 
+  const handleAvatarChange = (event) => {
+    const file = event.target.files[0]; // Récupérer le premier fichier sélectionné
+    console.log('Selected file:', file.name);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -188,6 +198,9 @@ export default function UserMangement() {
       setName('');
       setEmail('');
       setPassword('');
+      setDescription('');
+      setAddress('');
+      setPhone('');
     
 
       // Fermer la boîte de dialogue après l'enregistrement
@@ -237,7 +250,7 @@ export default function UserMangement() {
         <form onSubmit={handleSubmit}>
         <DialogContent>
   <Grid container spacing={2}>
-    <Grid item xs={6}>
+    <Grid item xs={12}>
       <TextField
         autoFocus
         margin="dense"
@@ -249,7 +262,7 @@ export default function UserMangement() {
         onChange={(e) => setName(e.target.value)}
       />
     </Grid>
-    <Grid item xs={6}>
+    <Grid item xs={12}>
       <TextField
         autoFocus
         margin="dense"
@@ -261,7 +274,32 @@ export default function UserMangement() {
         onChange={(e) => setEmail(e.target.value)}
       />
     </Grid>
-    <Grid item xs={6}>
+    <Grid item xs={12}>
+      <TextField
+        autoFocus
+        margin="dense"
+        label="Company Address"
+        type="text"
+        fullWidth
+        placeholder="Enter Company Address"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+      />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField
+        autoFocus
+        margin="dense"
+        label="Company Phone"
+        type="tel"
+        fullWidth
+        placeholder="Enter Company Phone Number"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+      />
+    </Grid>
+  </Grid>
+  <Grid item xs={12}>
       <TextField
         autoFocus
         margin="dense"
@@ -273,7 +311,6 @@ export default function UserMangement() {
         onChange={(e) => setPassword(e.target.value)}
       />
     </Grid>
-  </Grid>
 </DialogContent>
 
           <DialogActions>
@@ -438,36 +475,8 @@ const EditFormDialog = ({ open, handleClose, formData, handleUpdate }) => {
   return (
     <Dialog open={open} onClose={handleClose} aria-labelledby="edit-form-dialog">
       <DialogTitle>Edit Form</DialogTitle>
-      <DialogContent>
-        <TextField
-          autoFocus
-          margin="dense"
-          label="Name"
-          type="text"
-          fullWidth
-          name="name"
-          value={editedData.name}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="dense"
-          label="Email"
-          type="email"
-          fullWidth
-          name="email"
-          value={editedData.email}
-          onChange={handleChange}
-        />
-        <TextField
-          margin="dense"
-          label="Password"
-          type="password"
-          fullWidth
-          name="password"
-          value={editedData.password}
-          onChange={handleChange}
-        />
-      </DialogContent>
+      
+
       <DialogActions>
         <Button onClick={handleClose} color="primary">
           Cancel
